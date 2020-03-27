@@ -1,3 +1,4 @@
+#change the groupID to your groupID
 FROM jenkins/jenkins:lts
 # if we want to install via apt
 USER root
