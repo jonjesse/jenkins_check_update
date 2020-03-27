@@ -3,30 +3,32 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                echo 'checking for latest jenkins/jenkins:lts and building if one exits'
                 sh './update.sh'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing'
+                echo 'Testing for latest jenkins/jenkins:lts docker image installed'
+                sh './test.sh'
             }
         }
 
         stage('Deploy - Staging') {
             steps {
-                sh './deploy'
+                echo 'nothing to do here'
             }
         }
 
-        stage('Sanity check') {
+        /*stage('Sanity check') {
             steps {
-                input "Does the staging environment look ok?"
+               input "Does the staging environment look ok?"
             }
-        }
+        }*/
 
         stage('Deploy - Production') {
             steps {
-                sh './finish'
+                echo 'nothing to do here'
             }
         }
     }
