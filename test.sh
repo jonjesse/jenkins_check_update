@@ -5,5 +5,5 @@ _output=$(docker images | grep $_date)
 if [[ $? == 0 ]]; then
   echo "Today $_date jenkins image updated"
 else
-  echo "No updates today"
+  echo "No updates today, $_date"
 fi  
