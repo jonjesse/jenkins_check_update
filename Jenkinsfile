@@ -35,6 +35,7 @@ pipeline {
     post {
         always {
             echo "One way or another, I'm done"
+            junit 'build/reports/result.xml'
         }
         success {
             echo "This is success"
