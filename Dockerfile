@@ -2,6 +2,7 @@
 FROM jenkins/jenkins:lts
 # if we want to install via apt
 USER root
+ARG _groupid=132
 RUN apt-get update && apt-get install -y apt-utils ruby sudo
 RUN apt-get install -y \
     apt-transport-https \
@@ -16,8 +17,10 @@ RUN add-apt-repository \
    stable"
 RUN apt-get update
 RUN apt-get install -y docker-ce docker-ce-cli containerd.io
-RUN groupmod -g 132 docker
-RUN usermod -a -G docker jenkins
+RUN groupmod -g ${_groupid} docker
+RUN usermod -aG docker jenkins
+COPY reconfig_date.sh /reconfig_date.sh
+RUN /reconfig_date.sh
 
 # drop back to the regular jenkins user - good practice
 USER jenkins
