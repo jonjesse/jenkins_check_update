@@ -37,16 +37,16 @@ pipeline {
             echo "One way or another, I'm done"
         }
         success {
-            echo "This is success"
+            echo "Finished successfully"
         }
         failure {
-            echo "I failed"
+            echo "I failed, check logs"
         }
         unstable {
-            echo 'I am unstable :/'
+            echo 'Unknown state, check logs'
         }
         changed {
-            echo 'Things were different before...'
+            echo 'You may see this message, safe to ignore'
         }
     }
 }
