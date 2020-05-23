@@ -18,7 +18,8 @@ pipeline {
 
         stage('Deploy - Staging') {
             steps {
-                echo 'nothing to do here'
+                echo 'This is the current docker image'
+		sh './current.sh'
             }
         }
 
