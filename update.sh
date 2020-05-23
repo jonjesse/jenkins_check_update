@@ -7,7 +7,10 @@ _output=$(docker pull jenkins/jenkins:lts)
 _already_exists="Image is up to date"
 _new_image="Downloaded newer image for"
 _digests=""
+#_current_images=$(docker images | grep lts_docker)
 
+
+echo "lastest docker images: $_current_images"
 if [[ $_output =~ $_already_exists ]]; then
   echo "you already have latest image"
 elif [[ $_output =~ $_new_image ]]; then
