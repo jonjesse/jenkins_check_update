@@ -31,7 +31,8 @@ pipeline {
 
         stage('Deploy - Production') {
             steps {
-                echo 'nothing to do here'
+                echo 'This is the created date form latest jenkins/jenkins:lts'
+                sh """docker inspect jenkins/jenkins:lts --format \"{{.Created}}\""""
             }
         }
     }
