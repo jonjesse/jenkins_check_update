@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  jenkins:
+    image: jenkins/jenkins:lts_docker_06-01-20
+    ports:
+      - "50000:50000"
+      - "8080:8080"
+    networks:
+      - jenkins
+    volumes:
+      - /home/jenkins:/var/jenkins_home 
+
+networks:
+  jenkins: 
