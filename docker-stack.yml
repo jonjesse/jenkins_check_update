@@ -1,9 +1,7 @@
 version: "3.8"
 services:
   jenkins:
-    build:
-      context: .
-    image: jenkins/jenkins:lts_docker
+    image: jenkins/jenkins:lts_docker_06-01-20
     ports:
       - "50000:50000"
       - "8080:8080"
@@ -11,7 +9,6 @@ services:
       - jenkins
     volumes:
       - /home/jenkins:/var/jenkins_home 
-      - /var/run/docker.sock:/var/run/docker.sock
 
 networks:
   jenkins: 
