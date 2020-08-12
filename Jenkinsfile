@@ -6,7 +6,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'checking for latest jenkins/jenkins:lts and building if one exits'
-                sh './update.sh'
+                def ret = sh(script:'./update.sh', returnStdout:true)
+	        println ret
             }
         }
         stage('Test') {
