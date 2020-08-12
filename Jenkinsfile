@@ -6,12 +6,14 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'checking for latest jenkins/jenkins:lts and building if one exits'
-                try {
+                script { 
+ 		 try {
 		   def ret = sh(script:'./update.sh', returnStdout:true).trim()
 	           println ret
-	        } catch (Exception ex) {
+	         } catch (Exception ex) {
   		   println("Error in build: ${ex}")
-		}
+		 }
+	       }
             }
         }
         stage('Test') {
