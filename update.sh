@@ -19,7 +19,7 @@ elif [[ $_output =~ $_new_image ]]; then
   #echo "new image was downloaded, building"
   _digests=$(docker image inspect --format='{{.RepoDigests}}' jenkins/jenkins:lts)
   #echo "Digests for new image: $_digests"
-  docker build -f Dockerfile -t jenkins/jenkins:lts_docker_$_date .
+  b1=$(docker build -f Dockerfile -t jenkins/jenkins:lts_docker_$_date .)
   sleep 5
   _state=$(docker images --format "{{.Repository}}:{{.Tag}}" | grep -i jenkins | grep -i $_date | head -1)
   echo $_state
