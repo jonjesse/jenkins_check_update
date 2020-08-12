@@ -9,7 +9,7 @@ pipeline {
                 script { 
  		 try {
 		   def ret = sh(script:'./update.sh', returnStdout:true).trim()
-	           println ("ret is",ret)
+	           println ("ret is: ${ret}")
 	         } catch (Exception ex) {
   		   println("Error in build: ${ex}")
 		 }
