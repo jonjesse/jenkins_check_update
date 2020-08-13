@@ -21,6 +21,7 @@ elif [[ $_output =~ $_new_image ]]; then
   #echo "Digests for new image: $_digests"
   b1=$(docker build -f Dockerfile -t jenkins/jenkins:lts_docker_$_date .)
   sleep 5
+  echo $b1
   _state=$(docker images --format "{{.Repository}}:{{.Tag}}" | grep -i jenkins | grep -i $_date | head -1)
   echo $_state
 else
