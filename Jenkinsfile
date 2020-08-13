@@ -41,9 +41,10 @@ pipeline {
                 echo 'This is the created date form latest jenkins/jenkins:lts'
                 sh """docker inspect jenkins/jenkins:lts --format \"{{.Created}}\""""
 		script {
+	          println(ret)
 		  if (ret !=0 ) {
 		    try {
-		       sh './deploy.sh'
+		       sh """./deploy.sh"""
 		    } catch (Exception ex) {
 		      println("Error in deploy: ${ex}")
 		  }
