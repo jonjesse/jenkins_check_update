@@ -1,5 +1,7 @@
 #!groovy
 
+ret = ''
+
 pipeline {
     agent any
     stages {
@@ -8,7 +10,7 @@ pipeline {
                 echo 'checking for latest jenkins/jenkins:lts and building if one exits'
                 script { 
  		 try {
-		   def ret = sh(script:'./update.sh', returnStdout:true).trim()
+		   ret = sh(script:'./update.sh', returnStdout:true).trim()
 	           println ("ret is: ${ret}")
 	         } catch (Exception ex) {
   		   println("Error in build: ${ex}")
