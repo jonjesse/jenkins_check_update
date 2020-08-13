@@ -42,7 +42,7 @@ pipeline {
             steps {
                 echo 'This is the created date form latest jenkins/jenkins:lts'
                 sh """docker inspect jenkins/jenkins:lts --format \"{{.Created}}\""""
-		script {
+		/*script {
 	          println(ret)
 		  if (ret !=0 ) {
 		    try {
@@ -51,7 +51,7 @@ pipeline {
 		      println("Error in deploy: ${ex}")
 		  }
 	         }
-                }
+                }*/
           }
       }
     }
