@@ -40,9 +40,17 @@ pipeline {
             steps {
                 echo 'This is the created date form latest jenkins/jenkins:lts'
                 sh """docker inspect jenkins/jenkins:lts --format \"{{.Created}}\""""
-            }
-        }
-    }
+		script {
+		  if (ret !=0 ) {
+		    try {
+		       sh './deploy.sh'
+		    } catch (Exception ex) {
+		      println("Error in deploy: ${ex}")
+		  }
+	         }
+                }
+          }
+      }
     post {
         always {
             echo "This always posts, reached the end"
