@@ -10,9 +10,8 @@ pipeline {
                 echo 'checking for latest jenkins/jenkins:lts and building if one exits'
                 script { 
  		 try {
-		   //ret = sh(script:'./update.sh', returnStdout:true).trim()
-	           sh(script:'./update.sh' returnStdout:true)
- 	           //println ("ret is: ${ret}")
+		   ret = sh(script:'./update.sh', returnStdout:true).trim()
+	           println ("ret is: ${ret}")
 	         } catch (Exception ex) {
   		   println("Error in build: ${ex}")
 		 }

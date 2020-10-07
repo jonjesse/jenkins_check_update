@@ -24,8 +24,9 @@ elif [[ $_output =~ $_new_image ]]; then
   echo $b1
   _state=$(docker images --format "{{.Repository}}:{{.Tag}}" | grep -i jenkins | grep -i $_date | head -1)
   echo $_state
+  exit 0
 else
-  echo 0
-  exit 0;
+  echo "unknown state"
+  exit 1
   #echo "entered an unknow state, quitting"
 fi
