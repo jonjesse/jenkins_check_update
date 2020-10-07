@@ -11,7 +11,7 @@ pipeline {
                 script { 
  		 try {
 		   //ret = sh(script:'./update.sh', returnStdout:true).trim()
-	           sh(script:'./update.sh' returnStdout:true)
+	           sh(script:'./update.sh', returnStdout:true)
  	           //println ("ret is: ${ret}")
 	         } catch (Exception ex) {
   		   println("Error in build: ${ex}")
